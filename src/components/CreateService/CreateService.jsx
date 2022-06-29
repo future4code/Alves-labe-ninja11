@@ -22,6 +22,14 @@ export default class CreateService extends Component {
 	};
 
 	onChangeSelectPayments = (e) => {
+		/* 
+      Foi preciso iniciar o valor do select no state como um array vázio,
+      após isso foi necessário converter o event.target.selectedOptions
+      que é um HTMLOptionsCollection para array usando o Array.from() e
+      usar a função map para obter o valor de cada item do array criado.
+
+      https://stackoverflow.com/questions/50090335/how-handle-multiple-select-form-in-reactjs
+    */
 		this.setState({
 			selectedPayments: Array.from(
 				e.target.selectedOptions,
