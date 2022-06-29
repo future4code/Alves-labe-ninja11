@@ -1,4 +1,6 @@
+import axios from "axios";
 import React, { Component } from "react";
+import { baseURL, headers } from "../../constants";
 
 export default class CreateService extends Component {
 	state = {
@@ -18,7 +20,7 @@ export default class CreateService extends Component {
 	};
 
 	onChangeInputPrice = (e) => {
-		this.setState({ price: e.target.value });
+		this.setState({ price: Number(e.target.value) });
 	};
 
 	onChangeSelectPayments = (e) => {
@@ -43,7 +45,30 @@ export default class CreateService extends Component {
 	};
 
 	createService = () => {
-		alert("Serviço criado com sucesso!");
+		const body = {
+			title: this.state.title,
+			description: this.state.description,
+			price: this.state.price,
+			paymentMethods: this.state.selectedPayments,
+			dueDate: this.state.date,
+		};
+
+		axios
+			.post(`${baseURL}/jobs`, body, headers)
+			.then((response) => {
+				alert(response.data.message);
+				this.setState({
+					title: "",
+					description: "",
+					price: "",
+					selectedPayments: "",
+					date: "",
+				});
+			})
+			.catch((error) => {
+				alert("Ocorreu um erro, tente novamente!");
+				console.log(error.response.data.message);
+			});
 	};
 
 	render() {
