@@ -1,10 +1,11 @@
+import axios from "axios";
 import React, { Component } from "react";
 import styled from 'styled-components'
+import { baseURL, headers } from "../../constants";
 
 const CadastrarSev = styled.div`
 border: 1px solid black;
-height: 100vh;
-width: 100vw;
+width: 253px;
 display: flex;
 flex-direction: column;
 align-items: center;`
@@ -30,7 +31,7 @@ export default class CreateService extends Component {
 	};
 
 	onChangeInputPrice = (e) => {
-		this.setState({ price: e.target.value });
+		this.setState({ price: Number(e.target.value) });
 	};
 
 	onChangeSelectPayments = (e) => {
@@ -55,7 +56,30 @@ export default class CreateService extends Component {
 	};
 
 	createService = () => {
-		alert("Serviço criado com sucesso!");
+		const body = {
+			title: this.state.title,
+			description: this.state.description,
+			price: this.state.price,
+			paymentMethods: this.state.selectedPayments,
+			dueDate: this.state.date,
+		};
+
+		axios
+			.post(`${baseURL}/jobs`, body, headers)
+			.then((response) => {
+				alert(response.data.message);
+				this.setState({
+					title: "",
+					description: "",
+					price: "",
+					selectedPayments: "",
+					date: "",
+				});
+			})
+			.catch((error) => {
+				alert("Ocorreu um erro, tente novamente!");
+				console.log(error.response.data.message);
+			});
 	};
 
 	render() {
