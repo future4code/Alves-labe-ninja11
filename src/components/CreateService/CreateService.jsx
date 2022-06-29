@@ -1,4 +1,16 @@
 import React, { Component } from "react";
+import styled from 'styled-components'
+
+const CadastrarSev = styled.div`
+border: 1px solid black;
+height: 100vh;
+width: 100vw;
+display: flex;
+flex-direction: column;
+align-items: center;`
+
+
+
 
 export default class CreateService extends Component {
 	state = {
@@ -48,7 +60,7 @@ export default class CreateService extends Component {
 
 	render() {
 		return (
-			<div>
+			<CadastrarSev>
 				<h2>Cadastre o seu serviço</h2>
 				<input
 					type={"text"}
@@ -72,7 +84,7 @@ export default class CreateService extends Component {
 				/>
 
 				<select
-					multiple
+					
 					value={this.state.selectedPayments}
 					onChange={this.onChangeSelectPayments}
 				>
@@ -93,7 +105,7 @@ export default class CreateService extends Component {
 				<button onClick={this.createService}>
 					Cadastrar Serviço
 				</button>
-			</div>
+			</CadastrarSev>
 		);
 	}
 }
