@@ -20,15 +20,15 @@ const StyleHome = styled.div`
   justify-content: center;
 `
 
-const BotaoHome = styled.button `
-    background-color: #2980b9;
-    border-radius: 4px;
-    color: white;
-    width: 200px;
-    height: 40px;
-    font-size: 20px;
-    border: none;   
-    box-shadow: 5px 4px 4px #2980b9;
+const BotaoHome = styled.button`
+  background-color: #2980b9;
+  border-radius: 4px;
+  color: white;
+  width: 200px;
+  height: 40px;
+  font-size: 20px;
+  border: none;
+  box-shadow: 5px 4px 4px #2980b9;
 `
 
 const Home = props => {
@@ -41,7 +41,9 @@ const Home = props => {
           </BotaoHome>
         </div>
         <div>
-          <BotaoHome>Contratar um ninja</BotaoHome>
+          <BotaoHome onClick={() => props.mudarPagina('Lista')}>
+            Contratar um ninja
+          </BotaoHome>
         </div>
       </BotoesHome>
     </StyleHome>

@@ -1,6 +1,17 @@
 import React, { Component } from 'react'
 import IconCart from "../../assets/IconCart.png"
 import axios from 'axios'
+import styled from 'styled-components'
+
+const StyleCarrinho = styled.div`
+padding: 25px;
+border: 1px solid black;
+margin: 25px;
+display: flex;
+width: fit-content;
+justify-content: center;
+align-items: space-around;
+width: 100vw;`
 
 export default class Cart extends Component {
     state = {
@@ -67,9 +78,9 @@ export default class Cart extends Component {
 
     render() {
         return (
-            <div>
+            <StyleCarrinho>
                 {this.TelaCarrinho()}
-            </div>
+            </StyleCarrinho>
         )
     }
 }

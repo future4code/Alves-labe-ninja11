@@ -31,7 +31,7 @@ const Header = (props) => {
         <h2>Logo-Labeninjas</h2>
           <StyleButton>
 
-            <BotaoHeader>Home</BotaoHeader>
+            <BotaoHeader onClick={() => props.mudarPagina('Home')}>Home</BotaoHeader>
             <BotaoHeader  onClick={() => props.mudarPagina('Cart')}>Carrinho</BotaoHeader>
         </StyleButton>
       </StyleHead>
