@@ -4,21 +4,30 @@ import CreateService from './components/CreateService/CreateService'
 import Cart from './components/Cart/Cart'
 import Footer from './components/Footer/Footer'
 import styled from 'styled-components'
-
-const BotoesHome = styled.div`
-  margin: 10px;
-`
+import Home from './components/home/index'
 
 export default class App extends Component {
+  state = {
+    paginas: ''
+  }
+
+  mudarPagina = paginas => {
+    this.setState({ paginas: paginas })
+  }
   render() {
+    const escolherPagina = () => {
+      switch (this.state.paginas) {
+        case 'CreateService':
+          return <CreateService />
+        case 'Cart':
+          return <Cart />
+      }
+    }
     return (
       <div>
         <Header />
-        <CreateService />
-        <BotoesHome>
-          <button>Quero ser um ninja</button>
-          <button>Contratar um ninja</button>
-        </BotoesHome>
+        <Home mudarPagina={this.mudarPagina} />
+        {escolherPagina()}
         {/* <Cart /> */}
         <Footer />
       </div>
