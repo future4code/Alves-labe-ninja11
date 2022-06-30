@@ -32,7 +32,6 @@ export default class App extends Component {
       <div>
         <Header mudarPagina={this.mudarPagina} />
         {escolherPagina()}
-        {/* <Cart /> */}
         <Footer />
       </div>
     )
