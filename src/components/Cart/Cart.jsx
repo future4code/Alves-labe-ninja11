@@ -11,6 +11,17 @@ import { DivLogo } from './Styled'
 import { DivItemCarrinho } from './Styled'
 import { DivCarrinho } from './Styled'
 
+const StyleCarrinho = styled.div`
+padding: 25px;
+border: 1px solid black;
+margin: 25px;
+display: flex;
+width: fit-content;
+justify-content: center;
+align-items: space-around;
+width: 100vw;`
+
+
 export default class Cart extends Component {
     state = {
         tela: "cheio",
@@ -132,9 +143,9 @@ export default class Cart extends Component {
 
     render() {
         return (
-            <div>
+            <StyleCarrinho>
                 {this.TelaCarrinho()}
-            </div>
+            </StyleCarrinho>
         )
     }
 }

@@ -3,16 +3,22 @@ import React, { Component } from "react";
 import styled from 'styled-components'
 import { baseURL, headers } from "../../constants";
 
-const CadastrarSev = styled.div`
-border: 1px solid black;
+const CadastrarSev = styled.section`
 width: 253px;
 height: 400;
 display: flex;
 flex-direction: column;
 align-items: center;
-padding: 10px;`
+padding: 10px;
+justify-content: center;`
 
-
+const ConteinerCad = styled.div`
+display: flex;
+width: fit-content;
+justify-content: center;
+align-items: space-around;
+width: 100vw;
+`
 
 
 export default class CreateService extends Component {
@@ -86,6 +92,7 @@ export default class CreateService extends Component {
 
 	render() {
 		return (
+			<ConteinerCad>
 			<CadastrarSev>
 				<h2>Cadastre o seu serviço</h2>
 				<input
@@ -132,6 +139,7 @@ export default class CreateService extends Component {
 					Cadastrar Serviço
 				</button>
 			</CadastrarSev>
+			</ConteinerCad>
 		);
 	}
 }

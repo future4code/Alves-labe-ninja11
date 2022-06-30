@@ -13,20 +13,30 @@ const StyleButton = styled.div`
 display: flex;
 flex-direction: row;
 align-items: center;
+gap: 40px;
+`
+const BotaoHeader = styled.button`
+    color: white;
+    background-color:  #3197dc;
+    border: none;
+    border-radius: 7px;
 `
 
 
+
  
-export default class Header extends Component {
-  render() {
+const Header = (props) => {
     return (
       <StyleHead>
         <h2>Logo-Labeninjas</h2>
           <StyleButton>
-            <button>Home</button>
-            <button>Carrinho</button>
+
+            <BotaoHeader onClick={() => props.mudarPagina('Home')}>Home</BotaoHeader>
+            <BotaoHeader  onClick={() => props.mudarPagina('Cart')}>Carrinho</BotaoHeader>
         </StyleButton>
       </StyleHead>
     )
-  }
+  
 }
+
+export default Header
