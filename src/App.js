@@ -5,10 +5,11 @@ import Cart from './components/Cart/Cart'
 import Footer from './components/Footer/Footer'
 import styled from 'styled-components'
 import Home from './components/home/index'
+import Lista from './components/lista'
 
 export default class App extends Component {
   state = {
-    paginas: ''
+    paginas: 'Home'
   }
 
   mudarPagina = paginas => {
@@ -21,12 +22,15 @@ export default class App extends Component {
           return <CreateService />
         case 'Cart':
           return <Cart />
+        case 'Lista':
+          return <Lista />
+        case 'Home':
+          return <Home mudarPagina={this.mudarPagina} />
       }
     }
     return (
       <div>
         <Header mudarPagina={this.mudarPagina} />
-        <Home mudarPagina={this.mudarPagina} />
         {escolherPagina()}
         {/* <Cart /> */}
         <Footer />

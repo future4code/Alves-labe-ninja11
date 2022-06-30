@@ -30,6 +30,7 @@ const Header = (props) => {
       <StyleHead>
         <h2>Logo-Labeninjas</h2>
           <StyleButton>
+
             <BotaoHeader>Home</BotaoHeader>
             <BotaoHeader  onClick={() => props.mudarPagina('Cart')}>Carrinho</BotaoHeader>
         </StyleButton>
