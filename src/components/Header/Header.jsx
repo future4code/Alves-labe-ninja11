@@ -17,16 +17,17 @@ align-items: center;
 
 
  
-export default class Header extends Component {
-  render() {
+const Header = (props) => {
     return (
       <StyleHead>
         <h2>Logo-Labeninjas</h2>
           <StyleButton>
             <button>Home</button>
-            <button>Carrinho</button>
+            <button  onClick={() => props.mudarPagina('Cart')}>Carrinho</button>
         </StyleButton>
       </StyleHead>
     )
-  }
+  
 }
+
+export default Header

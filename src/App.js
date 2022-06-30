@@ -25,7 +25,7 @@ export default class App extends Component {
     }
     return (
       <div>
-        <Header />
+        <Header mudarPagina={this.mudarPagina} />
         <Home mudarPagina={this.mudarPagina} />
         {escolherPagina()}
         {/* <Cart /> */}
