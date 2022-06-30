@@ -30,7 +30,9 @@ const Home = props => {
           </button>
         </div>
         <div>
-          <button>Contratar um ninja</button>
+          <button onClick={() => props.mudarPagina('Lista')}>
+            Contratar um ninja
+          </button>
         </div>
       </BotoesHome>
     </StyleHome>
