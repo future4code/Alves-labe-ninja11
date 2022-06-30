@@ -22,7 +22,7 @@ const Header = (props) => {
       <StyleHead>
         <h2>Logo-Labeninjas</h2>
           <StyleButton>
-            <button>Home</button>
+            <button onClick={() => props.mudarPagina('Home')}>Home</button>
             <button  onClick={() => props.mudarPagina('Cart')}>Carrinho</button>
         </StyleButton>
       </StyleHead>

@@ -9,7 +9,7 @@ import Lista from './components/lista'
 
 export default class App extends Component {
   state = {
-    paginas: ''
+    paginas: 'Home'
   }
 
   mudarPagina = paginas => {
@@ -24,12 +24,13 @@ export default class App extends Component {
           return <Cart />
         case 'Lista':
           return <Lista />
+        case 'Home':
+          return <Home mudarPagina={this.mudarPagina} />
       }
     }
     return (
       <div>
         <Header mudarPagina={this.mudarPagina} />
-        <Home mudarPagina={this.mudarPagina} />
         {escolherPagina()}
         {/* <Cart /> */}
         <Footer />

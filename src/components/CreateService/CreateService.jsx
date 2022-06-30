@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import { baseURL, headers } from "../../constants";
 
 const CadastrarSev = styled.div`
-border: 1px solid black;
 width: 253px;
 height: 400;
 display: flex;
