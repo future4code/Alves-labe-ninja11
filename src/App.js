@@ -19,7 +19,7 @@ export default class App extends Component {
           <button>Quero ser um ninja</button>
           <button>Contratar um ninja</button>
         </BotoesHome>
-        {/* <Cart /> */}
+        <Cart />
         <Footer />
       </div>
     )
