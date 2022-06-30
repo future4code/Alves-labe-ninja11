@@ -3,6 +3,11 @@ import Header from './components/Header/Header'
 import CreateService from './components/CreateService/CreateService'
 import Cart from './components/Cart/Cart'
 import Footer from './components/Footer/Footer'
+import styled from 'styled-components'
+
+const BotoesHome = styled.div`
+  margin: 10px;
+`
 
 export default class App extends Component {
   render() {
@@ -10,8 +15,10 @@ export default class App extends Component {
       <div>
         <Header />
         <CreateService />
-        <button>Quero ser um ninja</button>
-        <button>Contratar um ninja</button>
+        <BotoesHome>
+          <button>Quero ser um ninja</button>
+          <button>Contratar um ninja</button>
+        </BotoesHome>
         {/* <Cart /> */}
         <Footer />
       </div>

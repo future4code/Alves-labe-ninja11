@@ -6,9 +6,11 @@ import { baseURL, headers } from "../../constants";
 const CadastrarSev = styled.div`
 border: 1px solid black;
 width: 253px;
+height: 400;
 display: flex;
 flex-direction: column;
-align-items: center;`
+align-items: center;
+padding: 10px;`
 
 
 
