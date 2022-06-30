@@ -13,7 +13,15 @@ const StyleButton = styled.div`
 display: flex;
 flex-direction: row;
 align-items: center;
+gap: 40px;
 `
+const BotaoHeader = styled.button`
+    color: white;
+    background-color:  #3197dc;
+    border: none;
+    border-radius: 7px;
+`
+
 
 
  
@@ -22,8 +30,9 @@ const Header = (props) => {
       <StyleHead>
         <h2>Logo-Labeninjas</h2>
           <StyleButton>
-            <button onClick={() => props.mudarPagina('Home')}>Home</button>
-            <button  onClick={() => props.mudarPagina('Cart')}>Carrinho</button>
+
+            <BotaoHeader>Home</BotaoHeader>
+            <BotaoHeader  onClick={() => props.mudarPagina('Cart')}>Carrinho</BotaoHeader>
         </StyleButton>
       </StyleHead>
     )

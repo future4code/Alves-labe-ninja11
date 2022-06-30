@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import axios from 'axios'
+// import axios from 'axios'
 
 const BotoesHome = styled.div`
   display: flex;
@@ -20,19 +20,28 @@ const StyleHome = styled.div`
   justify-content: center;
 `
 
+const BotaoHome = styled.button `
+    background-color: #2980b9;
+    border-radius: 4px;
+    color: white;
+    width: 200px;
+    height: 40px;
+    font-size: 20px;
+    border: none;   
+    box-shadow: 5px 4px 4px #2980b9;
+`
+
 const Home = props => {
   return (
     <StyleHome>
       <BotoesHome>
         <div>
-          <button onClick={() => props.mudarPagina('CreateService')}>
+          <BotaoHome onClick={() => props.mudarPagina('CreateService')}>
             Quero ser um ninja
-          </button>
+          </BotaoHome>
         </div>
         <div>
-          <button onClick={() => props.mudarPagina('Lista')}>
-            Contratar um ninja
-          </button>
+          <BotaoHome>Contratar um ninja</BotaoHome>
         </div>
       </BotoesHome>
     </StyleHome>
