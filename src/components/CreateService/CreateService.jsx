@@ -1,25 +1,25 @@
 import axios from "axios";
 import React, { Component } from "react";
-import styled from 'styled-components'
+import styled from "styled-components";
 import { baseURL, headers } from "../../constants";
 
 const CadastrarSev = styled.section`
-width: 253px;
-height: 400;
-display: flex;
-flex-direction: column;
-align-items: center;
-padding: 10px;
-justify-content: center;`
+	width: 253px;
+	height: 400;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 10px;
+	justify-content: center;
+`;
 
 const ConteinerCad = styled.div`
-display: flex;
-width: fit-content;
-justify-content: center;
-align-items: space-around;
-width: 100vw;
-`
-
+	display: flex;
+	width: fit-content;
+	justify-content: center;
+	align-items: space-around;
+	width: 100vw;
+`;
 
 export default class CreateService extends Component {
 	state = {
@@ -93,52 +93,52 @@ export default class CreateService extends Component {
 	render() {
 		return (
 			<ConteinerCad>
-			<CadastrarSev>
-				<h2>Cadastre o seu serviço</h2>
-				<input
-					type={"text"}
-					placeholder="Título do serviço"
-					value={this.state.title}
-					onChange={this.onChangeInputTitle}
-				/>
+				<CadastrarSev>
+					<h2>Cadastre o seu serviço</h2>
+					<input
+						type={"text"}
+						placeholder="Título do serviço"
+						value={this.state.title}
+						onChange={this.onChangeInputTitle}
+					/>
 
-				<input
-					type={"text"}
-					placeholder="Descrição do serviço"
-					value={this.state.description}
-					onChange={this.onChangeInputDescription}
-				/>
+					<input
+						type={"text"}
+						placeholder="Descrição do serviço"
+						value={this.state.description}
+						onChange={this.onChangeInputDescription}
+					/>
 
-				<input
-					type={"number"}
-					placeholder="Preço"
-					value={this.state.price}
-					onChange={this.onChangeInputPrice}
-				/>
+					<input
+						type={"number"}
+						placeholder="Preço"
+						value={this.state.price}
+						onChange={this.onChangeInputPrice}
+					/>
 
-				<select
-					
-					value={this.state.selectedPayments}
-					onChange={this.onChangeSelectPayments}
-				>
-					<option>Cartão de crédito</option>
-					<option>Cartão de débito</option>
-					<option>PayPal</option>
-					<option>Boleto</option>
-					<option>Pix</option>
-				</select>
+					<select
+						multiple
+						value={this.state.selectedPayments}
+						onChange={this.onChangeSelectPayments}
+					>
+						<option>Cartão de crédito</option>
+						<option>Cartão de débito</option>
+						<option>PayPal</option>
+						<option>Boleto</option>
+						<option>Pix</option>
+					</select>
 
-				<input
-					type="date"
-					placeholder="Data do serviço"
-					value={this.state.date}
-					onChange={this.onChangeInputDate}
-				/>
+					<input
+						type="date"
+						placeholder="Data do serviço"
+						value={this.state.date}
+						onChange={this.onChangeInputDate}
+					/>
 
-				<button onClick={this.createService}>
-					Cadastrar Serviço
-				</button>
-			</CadastrarSev>
+					<button onClick={this.createService}>
+						Cadastrar Serviço
+					</button>
+				</CadastrarSev>
 			</ConteinerCad>
 		);
 	}
