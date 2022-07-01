@@ -30,6 +30,7 @@ export const DivLogo = styled.div`
 export const DivCarrinho = styled.div`
     display: grid;
     grid-template-columns: 70% 30%;
+    width: 100%;
 `
 
 export const DivItemCarrinho = styled.div`
