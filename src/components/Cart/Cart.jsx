@@ -10,6 +10,7 @@ import { DivPrincipalDefault } from './Styled'
 import { DivLogo } from './Styled'
 import { DivItemCarrinho } from './Styled'
 import { DivCarrinho } from './Styled'
+import styled from 'styled-components'
 
 const StyleCarrinho = styled.div`
 padding: 25px;
@@ -19,7 +20,8 @@ display: flex;
 width: fit-content;
 justify-content: center;
 align-items: space-around;
-width: 100vw;`
+width: 100vw;
+`
 
 
 export default class Cart extends Component {
