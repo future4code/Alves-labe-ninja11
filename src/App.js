@@ -21,7 +21,7 @@ export default class App extends Component {
         case 'CreateService':
           return <CreateService />
         case 'Cart':
-          return <Cart />
+          return <Cart mudarPagina={this.mudarPagina}/>
         case 'Lista':
           return <Lista />
         case 'Home':
