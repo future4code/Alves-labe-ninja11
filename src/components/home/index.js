@@ -29,7 +29,12 @@ const BotaoHome = styled.button`
   font-size: 20px;
   border: none;
   box-shadow: 5px 4px 4px #2980b9;
-`
+  &:hover{
+    width: 205px;
+    height: 45px;
+    transition: 0.3s;
+   };
+  `
 
 const Home = props => {
   return (
