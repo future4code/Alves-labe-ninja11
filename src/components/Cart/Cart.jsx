@@ -11,7 +11,6 @@ import { DivPrincipalDefault } from './Styled'
 import { DivLogo } from './Styled'
 import { DivItemCarrinho } from './Styled'
 import { DivCarrinho } from './Styled'
-import styled from 'styled-components'
 
 
 const StyleCarrinho = styled.div`
