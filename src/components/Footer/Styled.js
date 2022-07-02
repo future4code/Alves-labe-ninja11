@@ -11,7 +11,6 @@ export const DivSociais = styled.div`
     justify-items: center;
     align-items: center;
     background-color: rgb(7, 7, 7);
-    margin-top: 30px;
     padding: 20px;
 `
 export const DivInfo = styled.div`
