@@ -11,6 +11,10 @@ const CadastrarSev = styled.section`
 	align-items: center;
 	padding: 10px;
 	justify-content: center;
+	background-color: #3580b3;
+	margin-top: 20px;
+	border-radius: 10px;
+	margin-bottom: 20px;
 `;
 
 const ConteinerCad = styled.div`
@@ -20,6 +24,31 @@ const ConteinerCad = styled.div`
 	align-items: space-around;
 	width: 100vw;
 `;
+
+const StyleInput = styled.input`
+  min-width: 230px;
+  border-radius: 22px;
+  border: 2px blueviolet solid;
+  padding: 5px;
+  margin: 0px 0px 12px -5px;
+`
+const StyleSelect = styled.select`
+ min-width: 240px;
+  border-radius: 5px;
+  border: 2px blueviolet solid;
+  padding: 5px;
+  margin: 0px 0px 12px -5px;
+  ::-webkit-scrollbar{
+	background-color:white;
+	width: 9px;
+	border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb{
+	background-color:#3580b3;
+	border-radius: 3px;
+	
+  }
+`
 
 export default class CreateService extends Component {
 	state = {
@@ -95,28 +124,28 @@ export default class CreateService extends Component {
 			<ConteinerCad>
 				<CadastrarSev>
 					<h2>Cadastre o seu serviço</h2>
-					<input
+					<StyleInput
 						type={"text"}
 						placeholder="Título do serviço"
 						value={this.state.title}
 						onChange={this.onChangeInputTitle}
 					/>
 
-					<input
+					<StyleInput
 						type={"text"}
 						placeholder="Descrição do serviço"
 						value={this.state.description}
 						onChange={this.onChangeInputDescription}
 					/>
 
-					<input
+					<StyleInput
 						type={"number"}
 						placeholder="Preço"
 						value={this.state.price}
 						onChange={this.onChangeInputPrice}
 					/>
 
-					<select
+					<StyleSelect
 						multiple
 						value={this.state.selectedPayments}
 						onChange={this.onChangeSelectPayments}
@@ -126,9 +155,9 @@ export default class CreateService extends Component {
 						<option>PayPal</option>
 						<option>Boleto</option>
 						<option>Pix</option>
-					</select>
+					</StyleSelect>
 
-					<input
+					<StyleInput
 						type="date"
 						placeholder="Data do serviço"
 						value={this.state.date}
