@@ -202,36 +202,3 @@ export default class Lista extends Component {
     )
   }
 }
-
-
-// export const Lista = () => {
-//   return (
-    // <PaginaCards>
-    //   <CampoInput>
-    //     <input placeholder="Valor minimo"></input>
-    //     <input placeholder="Valor Maximo"></input>
-    //     <input placeholder="Pesquisar"></input>
-    //     <select>
-    //       <option>Sem filtro</option>
-    //       <option>a</option>
-    //       <option>b</option>
-    //       <option>b</option>
-    //       <option>c</option>
-    //     </select>
-    //   </CampoInput>
-    //   <Card>
-    //     <h1>Card de informação</h1>
-    //     <div>
-    //       <h3>info1</h3>
-    //       <h3>info2</h3>
-    //     </div>
-    //     <BotaoCard>
-    //       <button>Visualizar</button>
-    //       <button>Adiciona ao carrinho</button>
-    //     </BotaoCard>
-    //   </Card>
-    // </PaginaCards>
-//   )
-// }
-
-
