@@ -9,11 +9,30 @@ import Lista from './components/lista'
 
 export default class App extends Component {
   state = {
-    paginas: 'Home'
+    paginas: 'Home',
+    carrinho: [],
+    quantidade: 0,
+  }
+
+  componentDidUpdate = () => {
+    console.log(this.state.carrinho)
   }
 
   mudarPagina = paginas => {
     this.setState({ paginas: paginas })
+  }
+  adicionarAoCarrinho = (id,title, description, price ) => {
+    const novoProduto = {
+      "id": id,
+      "title": title,
+      "description": description,
+      "price": price
+    }
+    const novoCarrinho = [...this.state.carrinho, novoProduto]
+    this.setState({ carrinho: novoCarrinho, quantidade: +1 })
+  }
+  mandarServicos = () => {
+    //aqui eu passaria o valor do estado por props
   }
   render() {
     const escolherPagina = () => {
@@ -21,9 +40,9 @@ export default class App extends Component {
         case 'CreateService':
           return <CreateService />
         case 'Cart':
-          return <Cart mudarPagina={this.mudarPagina}/>
+          return <Cart mudarPagina={this.mudarPagina} />
         case 'Lista':
-          return <Lista />
+          return <Lista adicionarAoCarrinho={this.adicionarAoCarrinho} />
         case 'Home':
           return <Home mudarPagina={this.mudarPagina} />
       }

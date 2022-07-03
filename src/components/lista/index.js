@@ -1,6 +1,8 @@
 import axios from 'axios'
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { headers } from '../../constants'
+import { baseURL } from '../../constants'
 
 const Card = styled.div`
   display: flex;
@@ -38,55 +40,27 @@ const CampoInput = styled.div`
 
 export default class Lista extends Component {
   state = {
-    servicos: [
-      {
-        "id": "136e6826-ac86-4765-a3d6-669775c0dda9",
-        "title": "Desenvolvedor Front-End",
-        "description": "Desenvolver web sites para empresas",
-        "price": 4500,
-        "paymentMethods": [
-          "Pix",
-          "PayPal"
-        ],
-        "dueDate": "2022-12-30T00:00:00.000Z",
-        "taken": false
-      },
-      {
-        "id": "425068f4-5c5a-4abd-a33b-4aeab539c092",
-        "title": "Jardineiro",
-        "description": "jardineiro",
-        "price": 200,
-        "paymentMethods": [
-          "Cartão de crédito",
-          "Cartão de débito",
-          "PayPal",
-          "Boleto",
-          "Pix"
-        ],
-        "dueDate": "2023-03-03T00:00:00.000Z",
-        "taken": false
-      }
-      ,
-      {
-        "id": "6e6c2274-f9be-4ef8-8774-11a39765d223",
-        "title": "Pintor",
-        "description": "pintor",
-        "price": 230,
-        "paymentMethods": [
-          "Cartão de crédito",
-          "Cartão de débito",
-          "PayPal",
-          "Boleto"
-        ],
-        "dueDate": "2024-03-03T00:00:00.000Z",
-        "taken": false
-      },
-    ],
+    servicos: [],
     filtroPesquisar: "",
     minValor: "",
     maxValor: "",
     filtroOrdernacao: 1,
     ordemServicos: "titulo",
+  }
+
+  componentDidMount = () => {
+    this.getAllJobs()
+  }
+
+  getAllJobs = () => {
+    axios.get(
+      `${baseURL}/jobs`,
+       headers
+    ).then((resposta)=>{
+      return this.setState({servicos: resposta.data.jobs})
+    }).catch((erro)=>{
+      console.log(erro.response)
+    })
   }
 
   updateQuery = (event) => {
@@ -188,7 +162,9 @@ export default class Lista extends Component {
                 </div>
                 <BotaoCard>
                   <button>Visualizar</button>
-                  <button>Adiciona ao carrinho</button>
+                  <button
+                  onClick={() => this.props.adicionarAoCarrinho(servico.id, servico.title, servico.description, servico.price)}
+                  >Adicionar ao carrinho</button>
                 </BotaoCard>
               </Card>)
           })}
