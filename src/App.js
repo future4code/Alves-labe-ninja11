@@ -11,14 +11,14 @@ import CheckIcon from "./assets/checkIcon.png"
 import IconBasket from "./assets/iconBasket.png"
 
 
- const DivPrincipalDefault = styled.div`
+const DivPrincipalDefault = styled.div`
     /* display: flex;
     flex-direction: column;
     justify-content: center; */
 
 `
 
- const DivPrincipalFinalizar = styled.div`
+const DivPrincipalFinalizar = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -62,7 +62,7 @@ export default class App extends Component {
   }
 
   componentDidUpdate = () => {
-    console.log(this.state.carrinho)
+    console.log(this.state.quantidade)
   }
 
   mudarPagina = paginas => {
@@ -76,35 +76,38 @@ export default class App extends Component {
       "price": price
     }
     const novoCarrinho = [...this.state.carrinho, novoProduto]
-    this.setState({ carrinho: novoCarrinho, quantidade: +1, tela: "cheio" })
+    this.setState({ carrinho: novoCarrinho, quantidade: +1, tela: "cheio", valorTotal: this.state.valorTotal + price })
   }
 
 
-componentDidMount = () => {
+  componentDidMount = () => {
     this.carrinhoCheio()
-}
+  }
 
 
-TelaFinalizarCompra = () => {
+  TelaFinalizarCompra = () => {
     this.setState({ tela: "finalizar" })
-}
+  }
 
-removerServico = (servicoId) => {
+  removerServico = (servicoId) => {
+    const novoValor = this.state.carrinho.map((servico)=>{
+      this.setState({valorTotal: this.state.valorTotal - servico.price})
+    })
     const novosServicos = this.state.carrinho.filter((servico) => {
-        if (servico.id !== servicoId) {
-            return servico
-        }
+      if (servico.id !== servicoId) {
+        return servico
+      }
     })
     this.setState({ carrinho: novosServicos, quantidade: -1 })
-}
+  }
 
-carrinhoCheio = () => {
-    if(this.state.quantidade === 0){
-        return(this.setState({tela: ""}))
-    }else{
-        return(this.setState({tela: "cheio"}))
+  carrinhoCheio = () => {
+    if (this.state.quantidade === 0) {
+      return (this.setState({ tela: "vazio" }))
+    } else {
+      return (this.setState({ tela: "cheio" }))
     }
-}
+  }
   TelaCarrinho = () => {
     switch (this.state.tela) {
       case "cheio":
@@ -159,8 +162,20 @@ carrinhoCheio = () => {
             <h4>Qualquer dúvida entre em contato conosco:</h4>
             <p>atentimentoaocliente@labeninjas.com</p>
           </DivPrincipalFinalizar>
-        )
-
+        );
+      case "vazio":
+        return (
+          <DivPrincipalDefault>
+            <h3>Seu carrinho está vazio </h3>
+            <img
+              src={IconCart}
+              alt='Carrinho Vazio'
+            />
+            <button
+              onClick={() => this.mudarPagina('Lista')}
+            >Continuar comprando</button>
+          </DivPrincipalDefault>
+        );
       default:
         return (
           <DivPrincipalDefault>
