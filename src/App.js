@@ -7,6 +7,7 @@ import styled from 'styled-components'
 import Home from './components/home/index'
 import Lista from './components/lista'
 
+
 export default class App extends Component {
   state = {
     paginas: 'Home',
