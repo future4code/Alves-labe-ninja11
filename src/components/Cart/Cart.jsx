@@ -30,100 +30,13 @@ export default class Cart extends Component {
         tela: "",
         valorTotal: 0,
         quantidade: 0,
-        servicos: [
-            {
-                "id": "136e6826-ac86-4765-a3d6-669775c0dda9",
-                "title": "Desenvolvedor Front-End",
-                "description": "Desenvolver web sites para empresas",
-                "price": 4500,
-                "paymentMethods": [
-                    "Pix",
-                    "PayPal"
-                ],
-                "dueDate": "2022-12-30T00:00:00.000Z",
-                "taken": false
-            },
-            {
-                "id": "425068f4-5c5a-4abd-a33b-4aeab539c092",
-                "title": "Jardineiro",
-                "description": "jardineiro",
-                "price": 200,
-                "paymentMethods": [
-                    "Cartão de crédito",
-                    "Cartão de débito",
-                    "PayPal",
-                    "Boleto",
-                    "Pix"
-                ],
-                "dueDate": "2023-03-03T00:00:00.000Z",
-                "taken": false
-            }
-            ,
-            {
-                "id": "6e6c2274-f9be-4ef8-8774-11a39765d223",
-                "title": "Pintor",
-                "description": "pintor",
-                "price": 230,
-                "paymentMethods": [
-                    "Cartão de crédito",
-                    "Cartão de débito",
-                    "PayPal",
-                    "Boleto"
-                ],
-                "dueDate": "2024-03-03T00:00:00.000Z",
-                "taken": false
-            },
-            {
-                "id": "7b25e078-fe8c-465a-96f7-3b400278a275",
-                "title": "teste",
-                "description": "teste",
-                "price": 232,
-                "paymentMethods": [
-                    "Cartão de crédito",
-                    "Cartão de débito",
-                    "Boleto",
-                    "Pix"
-                ],
-                "dueDate": "2023-03-03T00:00:00.000Z",
-                "taken": false
-            },
-            {
-                "id": "7beec3e9-c3aa-48ac-a0cd-e53d36bdcd72",
-                "title": "Testador",
-                "description": "dou testadas",
-                "price": 100,
-                "paymentMethods": [
-                    "Pix",
-                    "PayPal"
-                ],
-                "dueDate": "2022-12-30T00:00:00.000Z",
-                "taken": false
-            },
-            {
-                "id": "9d47d311-06fd-44b3-b1c1-8ea85b62d713",
-                "title": "Mergulho no seco",
-                "description": "faço mergulhos em lugares sem agua",
-                "price": 230,
-                "paymentMethods": [
-                    "Cartão de crédito"
-                ],
-                "dueDate": "2022-08-25T00:00:00.000Z",
-                "taken": false
-            },
-            {
-                "id": "a3f79015-455e-4f47-866d-8aea2cbddbfb",
-                "title": "teste",
-                "description": "teste",
-                "price": 222,
-                "paymentMethods": [
-                    "Cartão de débito",
-                    "PayPal",
-                    "Boleto"
-                ],
-                "dueDate": "2023-03-03T00:00:00.000Z",
-                "taken": false
-            }
-        ],
+        servicos: [],
+    }
+
+    adicionarAoCarrinho = () => {
+        //Aqui eu pegaria o valor do estado por props do APP
+        //e setaria o estado servicos com esse valor
+        // this.setState({servicos: })
     }
 
     componentDidMount = () => {
