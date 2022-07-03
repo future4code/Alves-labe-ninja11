@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Header from './components/Header/Header'
 import CreateService from './components/CreateService/CreateService'
-import Cart from './components/Cart/Cart'
 import Footer from './components/Footer/Footer'
 import styled from 'styled-components'
 import Home from './components/home/index'
@@ -61,10 +60,6 @@ export default class App extends Component {
     servicos: [],
   }
 
-  componentDidUpdate = () => {
-    console.log(this.state.quantidade)
-  }
-
   mudarPagina = paginas => {
     this.setState({ paginas: paginas })
   }
@@ -76,29 +71,33 @@ export default class App extends Component {
       "price": price
     }
     const novoCarrinho = [...this.state.carrinho, novoProduto]
-    this.setState({ carrinho: novoCarrinho, quantidade: +1, tela: "cheio", valorTotal: this.state.valorTotal + price })
+    this.setState({ carrinho: novoCarrinho, quantidade: this.state.quantidade + 1, tela: "cheio", valorTotal: this.state.valorTotal + price })
   }
 
+
+  componentDidUpdate = () => {
+    console.log(this.state.tela)
+    console.log(this.state.quantidade)
+  }
 
   componentDidMount = () => {
     this.carrinhoCheio()
   }
-
 
   TelaFinalizarCompra = () => {
     this.setState({ tela: "finalizar" })
   }
 
   removerServico = (servicoId) => {
-    const novoValor = this.state.carrinho.map((servico)=>{
-      this.setState({valorTotal: this.state.valorTotal - servico.price})
+    const novoValor = this.state.carrinho.map((servico) => {
+      this.setState({ valorTotal: this.state.valorTotal - servico.price })
     })
     const novosServicos = this.state.carrinho.filter((servico) => {
       if (servico.id !== servicoId) {
         return servico
       }
     })
-    this.setState({ carrinho: novosServicos, quantidade: -1 })
+    this.setState({ carrinho: novosServicos, quantidade: this.state.quantidade - 1 })
   }
 
   carrinhoCheio = () => {
@@ -142,6 +141,9 @@ export default class App extends Component {
               <button
                 onClick={this.TelaFinalizarCompra}
               >Finalizar compra</button>
+              <button
+              onClick={() => this.mudarPagina('Lista')}
+            >Continuar comprando</button>
             </div>
 
           </DivCarrinho>
