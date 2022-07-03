@@ -4,29 +4,50 @@ import styled from 'styled-components'
 import { headers } from '../../constants'
 import { baseURL } from '../../constants'
 
+const SectionCard = styled.div`
+  display: flex;
+  flex-direction: row;
+`
+
 const Card = styled.div`
   display: flex;
   flex-direction: column;
-  border: 2px solid black;
-  width: 400px;
+  width: 300px;
   height: 200px;
   text-align: center;
   padding: 10px;
   margin: 12px;
   border-radius: 5%;
-  background-color: white;
+  background-color: #3580b3;
+  box-shadow: 5px 4px 4px #2980b9;
+  font-family: 'Roboto Condensed', sans-serif;
 `
 const PaginaCards = styled.div`
   display: flex;
-  background-color: gray;
-  width: 100vw;
-  height: 100vh;
+  background-color: white;
+  width: 100%;
+  height: 100%;
   flex-direction: column;
+  
 `
 
 const BotaoCard = styled.div`
   border: 1px;
   justify-content: center;
+  display: flex;
+  gap: 10px;
+`
+const Botao = styled.button`
+  background-color: white;
+  border-radius: 4px;
+  color: black;
+  width: 100px;
+  height: 30px;
+  font-size: 10px;
+  border: none;
+  &:hover {
+    background-color: lightblue;
+  }
 `
 const CampoInput = styled.div`
   display: flex;
@@ -35,7 +56,13 @@ const CampoInput = styled.div`
   margin: 24px;
   justify-content: space-around;
 `
-
+const TituloServico = styled.h3`
+  font-size: 25px;
+  font-weight: 800;
+`
+const DescricaoTexto = styled.h4`
+  font-size: 15px;
+`
 
 
 export default class Lista extends Component {
@@ -134,6 +161,7 @@ export default class Lista extends Component {
             <option value={-1}>Decrescente</option>
           </select>
         </CampoInput>
+        
         {this.state.servicos.filter((servico) => {
           return servico.title.toLowerCase().includes(this.state.filtroPesquisar.toLowerCase()) || servico.description.toLowerCase().includes(this.state.filtroPesquisar.toLocaleLowerCase())
         })
@@ -153,20 +181,22 @@ export default class Lista extends Component {
           })
           .map((servico) => {
             return (
-              <Card key={servico.id}>
-                <h1>Card de informação</h1>
+              <SectionCard>
+                <Card key={servico.id}>
+               
                 <div>
-                  <h3>{servico.title}</h3>
-                  <h3>{servico.description}</h3>
+                  <TituloServico>{servico.title}</TituloServico>
+                  <DescricaoTexto>{servico.description}</DescricaoTexto>
                   <h4>Valor: R${servico.price}</h4>
                 </div>
                 <BotaoCard>
-                  <button>Visualizar</button>
-                  <button
+                  <Botao>Visualizar Detalhes</Botao>
+                  <Botao
                   onClick={() => this.props.adicionarAoCarrinho(servico.id, servico.title, servico.description, servico.price)}
-                  >Adicionar ao carrinho</button>
+                  >Adicionar ao carrinho</Botao>
                 </BotaoCard>
-              </Card>)
+               </Card>
+            </SectionCard>)
           })}
       </PaginaCards>
     )

@@ -15,6 +15,7 @@ const CadastrarSev = styled.section`
 	margin-top: 20px;
 	border-radius: 10px;
 	margin-bottom: 20px;
+	box-shadow: 5px 4px 4px #2980b9;
 `;
 
 const ConteinerCad = styled.div`
