@@ -8,7 +8,7 @@ Projeto desenvolvido em grupo e pensando em uma solução para a empresa fictíc
 
 ## Acessar o site
 
-- [Link do surge](http://woozy-curve.surge.sh/)
+- [Link do surge](http://zealous-knot.surge.sh/)
 
 ## Ferramentas
 
